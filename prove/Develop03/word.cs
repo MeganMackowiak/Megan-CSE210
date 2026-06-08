@@ -1,10 +1,8 @@
-//Word class will contain the word. IF the word is hidden, GetWordString
-//Will return _ char - one for each character in the word 
+using System;
 
 class Word
 {
     private string _word;
-
     private bool _hidden;
 
     public Word(string word)
@@ -13,25 +11,17 @@ class Word
         _hidden = false;
     }
 
-//GetWordString - Return either the word, if not hidden, or the _s
-    public string GetWordString()
+    public string GetDisplayText()
     {
-        string tempWord = "";
         if (_hidden)
         {
-            foreach(char c in _word)
-            {
-                tempWord += '_';
-            }
+            return new string('_', _word.Length);
         }
         else
         {
-            tempWord = _word;
+            return _word;
         }
-        return tempWord;
-        
     }
-
 
     public void Hide()
     {
@@ -41,10 +31,5 @@ class Word
     public bool IsHidden()
     {
         return _hidden;
-    }
-
-    public void DisplayWord()
-    {
-        Console.WriteLine(GetWordString());
     }
 }
